@@ -9,8 +9,6 @@
 import UIKit
 
 class ButtonsCell: UITableViewCell {
-    
-    
     @IBOutlet weak var shareButton: UIButton!
     
     @IBOutlet weak var retweetButton: UIButton!
