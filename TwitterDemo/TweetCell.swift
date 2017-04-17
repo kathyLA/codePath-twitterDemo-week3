@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFNetworking
 
 class TweetCell: UITableViewCell {
 
@@ -24,6 +25,14 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var reteetButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
     
+    var tweet: Tweet! {
+        didSet{
+           let url = tweet.user?.profileUrl
+            if let url = url {
+                profileView.setImageWith(url)
+            }
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
