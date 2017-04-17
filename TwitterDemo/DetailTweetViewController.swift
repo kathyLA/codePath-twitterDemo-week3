@@ -12,7 +12,6 @@ class DetailTweetViewController: UIViewController {
     var tweet: Tweet?
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -20,7 +19,6 @@ class DetailTweetViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation
