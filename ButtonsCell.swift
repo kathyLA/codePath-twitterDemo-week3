@@ -8,8 +8,16 @@
 
 import UIKit
 
-class ButtonsTableViewCell: UITableViewCell {
-
+class ButtonsCell: UITableViewCell {
+    
+    
+    @IBOutlet weak var shareButton: UIButton!
+    
+    @IBOutlet weak var retweetButton: UIButton!
+    
+    
+    @IBOutlet weak var favoriteButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -10,6 +10,14 @@ import UIKit
 
 class DetailTweetCell: UITableViewCell {
 
+    @IBOutlet weak var retweetUpperButton: UIButton!
+    @IBOutlet weak var retweetUpperLabel: UILabel!
+    @IBOutlet weak var profileImageVIew: UIImageView!
+    @IBOutlet weak var screenName: UILabel!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var tweetText: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

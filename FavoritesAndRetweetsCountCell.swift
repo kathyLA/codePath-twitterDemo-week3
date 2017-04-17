@@ -10,6 +10,10 @@ import UIKit
 
 class FavoritesAndRetweetsCountCell: UITableViewCell {
 
+    @IBOutlet weak var retweetLabel: UILabel!
+    
+    @IBOutlet weak var favoeiteLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

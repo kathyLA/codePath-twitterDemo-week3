@@ -301,7 +301,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TweetCell" rowHeight="131" id="nNQ-jA-oPy" userLabel="TweetCell" customClass="TweetCell" customModule="TwitterDemo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DetailTweetCell" rowHeight="131" id="nNQ-jA-oPy" userLabel="TweetCell" customClass="DetailTweetCell" customModule="TwitterDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="131"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nNQ-jA-oPy" id="98c-ga-ZwD">
@@ -377,8 +377,17 @@
                                                 <constraint firstItem="wMm-f0-k6G" firstAttribute="top" secondItem="zWn-Gz-YwF" secondAttribute="bottom" constant="4" id="vv0-HQ-mCJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="NU5-MS-AMM" id="Itr-2P-81t"/>
+                                            <outlet property="profileImageVIew" destination="wMm-f0-k6G" id="OWA-Mt-fnD"/>
+                                            <outlet property="retweetUpperButton" destination="zWn-Gz-YwF" id="ByY-1D-J7Y"/>
+                                            <outlet property="retweetUpperLabel" destination="ORt-dA-IQR" id="Ykc-jn-379"/>
+                                            <outlet property="screenName" destination="Muc-4e-T7i" id="yZS-9g-17o"/>
+                                            <outlet property="tweetText" destination="D2K-Oz-dWa" id="dhe-SC-pLQ"/>
+                                            <outlet property="userName" destination="quJ-WK-9aF" id="dE7-R9-ctY"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="BdR-jF-eFj">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FavoritesAndRetweetsCountCell" id="BdR-jF-eFj" customClass="FavoritesAndRetweetsCountCell" customModule="TwitterDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="159" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BdR-jF-eFj" id="0b5-3y-0WA">
@@ -422,8 +431,12 @@
                                                 <constraint firstItem="Snk-DN-Mlc" firstAttribute="centerY" secondItem="F7G-R7-CGc" secondAttribute="centerY" id="waU-vi-mdh"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="favoeiteLabel" destination="0Ug-b0-Vp4" id="BRb-vI-3hO"/>
+                                            <outlet property="retweetLabel" destination="F7G-R7-CGc" id="5dg-WB-gIX"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="58" id="NuV-ke-Xjd">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ButtonsCell" rowHeight="58" id="NuV-ke-Xjd" customClass="ButtonsCell" customModule="TwitterDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="203" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NuV-ke-Xjd" id="K96-j5-vBk">
@@ -465,6 +478,11 @@
                                                 <constraint firstItem="dhn-yH-Ri4" firstAttribute="leading" secondItem="GBQ-5s-n9P" secondAttribute="trailing" constant="35" id="xRe-Tx-WpM"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="favoriteButton" destination="B6W-ZS-ksZ" id="zgX-JR-AwG"/>
+                                            <outlet property="retweetButton" destination="dhn-yH-Ri4" id="79n-uD-y1v"/>
+                                            <outlet property="shareButton" destination="GBQ-5s-n9P" id="3hz-gi-cJa"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
