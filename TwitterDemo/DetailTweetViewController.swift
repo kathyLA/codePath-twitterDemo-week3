@@ -8,7 +8,8 @@
 
 import UIKit
 
-class DetailTweetViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DetailTweetViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ButtonsCellDelegate , ComposeTweetViewConrollerDelegate
+{
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -60,14 +61,37 @@ class DetailTweetViewController: UIViewController, UITableViewDelegate, UITableV
             cell?.tweet = tweet
         case 1:
             let cell = cell as? FavoritesAndRetweetsCountCell
-            cell?.favoriteCount = tweet?.favouritesCount
+            cell?.favoriteCount = tweet?.user?.favouritesCount
             cell?.retweetCount = tweet?.retweetCount
+            print("favoirte\(tweet?.user?.favouritesCount)")
+            print("retweets\(tweet?.retweetCount)")
+        case 2:
+            let cell = cell as? ButtonsCell
+            cell?.delegate = self
         default:
             break
         }
 
     }
     
+    func onTapReply() {
+        self.performSegue(withIdentifier: "DetailReplyTweet", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DetailReplyTweet" {
+            let vc = segue.destination as! ComposeTweetViewController
+            vc.isReply = true
+            vc.delegate = self
+            vc.replyId = tweet?.id
+            vc.replyScreenName = tweet?.user?.screenName
+            vc.user = User.currentUser
+        }
+    }
+    
+    func didTweet(composeTweetViewController: ComposeTweetViewController) {
+         self.navigationController?.popViewController(animated: true)
+    }
     
     /*
     // MARK: - Navigation

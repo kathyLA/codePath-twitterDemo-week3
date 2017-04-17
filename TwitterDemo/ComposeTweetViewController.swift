@@ -14,25 +14,39 @@ import AFNetworking
 }
 
 class ComposeTweetViewController: UIViewController {
+    
+    @IBOutlet weak var replyUserLabel: UILabel!
     @IBOutlet weak var userName: UILabel!
-
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var userScreenName: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     var user: User!
+    var replyScreenName: String?
+    var isReply: Bool?
+    var replyId: NSNumber? 
     weak var delegate: ComposeTweetViewConrollerDelegate?
     
     @IBAction func tapTweet(_ sender: Any) {
         print("tweet")
+        print("is Reply tweet: \(isReply)")
         let text = textView.text ?? ""
         if text != "" {
-            print("text")
-            TwitterClient.shareInstance?.newTweet(tweet: text , success: {
-                print("success tweet:\(text)")
+        let reply = isReply ?? false
+            if(!reply) {
+                TwitterClient.shareInstance?.newTweet(tweet: text , success: {
+                    print("success tweet:\(text)")
+                    self.delegate?.didTweet?(composeTweetViewController: self)
+                }, failure: { (error) in
+                    print("error when tweet:\(error.localizedDescription)")
+                })
+            } else {
+                TwitterClient.shareInstance?.replyTweet(tweetText: text, id: replyId ?? 0, success: {
+                    print("successful reply")
+                }, failure: { (error) in
+                    print("error when reply:\(error.localizedDescription)")
+                })
                 self.delegate?.didTweet?(composeTweetViewController: self)
-            }, failure: { (error) in
-                print("error when tweet:\(error.localizedDescription)")
-            })
+            }
         }
 
     }
@@ -51,10 +65,15 @@ class ComposeTweetViewController: UIViewController {
         } else {
             userImageView = nil
         }
-
         userName.text = user.name
         userScreenName.text = "@" + user.screenName!
-
+        
+        let reply = isReply ?? false
+        if(reply) {
+            self.textView.text = ""
+            replyUserLabel.text = "reply to @" + replyScreenName!
+        }
+        self.replyUserLabel.isHidden = !reply
         // Do any additional setup after loading the view.
     }
 

@@ -13,6 +13,7 @@ class User {
     var screenName: String?
     var profileUrl: URL?
     var tagline: String?
+    var favouritesCount: Int = 0
     var dictionary: NSDictionary?
     static let userDidLogOutNotification = "UserDidLogOut"
     
@@ -25,6 +26,7 @@ class User {
             profileUrl = URL(string: profileUrlString)
         }
         tagline = dictionary["description"] as? String
+        favouritesCount = dictionary["favourites_count"] as? Int ?? 0
     }
     
     static var _currentUser: User?

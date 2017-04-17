@@ -25,7 +25,6 @@ class DetailTweetCell: UITableViewCell {
               if let url = url {
                  profileImageVIew.setImageWith(url)
               }
-            
               userName.text = tweet.user?.name
               screenName.text = tweet.user?.screenName
               tweetText.text = tweet.text

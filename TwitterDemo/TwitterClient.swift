@@ -37,6 +37,7 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
+    
     func handleOpenUrl(url: URL) {
         let requestToken = BDBOAuth1Credential(queryString: url.query)
         fetchAccessToken(withPath: "oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessCredential) in
@@ -63,7 +64,7 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
-    func newTweet(tweet: String, success:@escaping (() -> ()), failure: @escaping ((Error) -> ())) {
+    func newTweet(tweet: String, success: @escaping (() -> ()), failure: @escaping ((Error) -> ())) {
         
        post("/1.1/statuses/update.json", parameters: ["status": tweet], progress: nil, success: { (task, response) in
             success()
@@ -72,6 +73,21 @@ class TwitterClient: BDBOAuth1SessionManager {
             print("Error:\(error.localizedDescription)")
         }
     }
+    
+    func replyTweet(tweetText: String, id: NSNumber, success: @escaping (() -> ()), failure: @escaping (Error) -> ()) {
+        let id = Int(id)
+        print(id)
+        post("/1.1/statuses/update.json", parameters: ["status": tweetText, "in_reply_to_status_id": id], progress: nil, success: { (task, response) -> Void in
+            print("success reply tweet")
+            let tweet = Tweet(dictionary: response as! NSDictionary)
+            print("reply to: \(tweet.user?.screenName)")
+            success()
+        }, failure: { (task, error) in
+            failure(error)
+            print("error when reply tweet")
+        })
+    }
+    
     
     func currentAccount(success: @escaping (User) -> (), failure: @escaping (Error) -> ()) {
         get("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task, response) in
@@ -85,10 +101,42 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
 
     }
-    
+
     func logout() {
        NotificationCenter.default.post(name: NSNotification.Name(rawValue: User.userDidLogOutNotification), object: nil)
         
        deauthorize()
+    }
+    
+    func retweet(id: String, success:()->(), failure:(Error)->()) {
+        post("", parameters: ["id"], progress: nil, success: { (task, nil) in
+            
+        }) { (task, error) in
+            
+        }
+    }
+
+    func unRetweet(id: String, success:()->(), failure:(Error)->()) {
+        post("", parameters: ["id"], progress: nil, success: { (task, nil) in
+            
+        }) { (task, error) in
+            
+        }
+    }
+
+    func favorite(id: String, success:()->(), failure:(Error)->()) {
+        post("", parameters: nil, progress: nil, success: { (task, success) in
+            
+        }) { (task, error) in
+            
+        }
+    }
+
+    func unFavorite(id: String, success:()->(), failure:(Error)->()) {
+        post("", parameters: nil, progress: nil, success: { (task, success) in
+            
+        }) { (task, error) in
+            
+        }
     }
 }

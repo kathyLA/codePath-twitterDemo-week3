@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, ComposeTweetViewConrollerDelegate {
+class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ComposeTweetViewConrollerDelegate, TweetCellButtonDelegate {
     var tweets: [Tweet]!
     
     @IBOutlet weak var tableview: UITableView!
@@ -20,6 +20,7 @@ class TweetsViewController: UIViewController , UITableViewDelegate, UITableViewD
         self.tableview.rowHeight = UITableViewAutomaticDimension
         self.tableview.refreshControl = UIRefreshControl()
         self.tableview.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        self.tableview.delaysContentTouches = false
         refresh()
         // Do any additional setup after loading the view.
     }
@@ -34,7 +35,11 @@ class TweetsViewController: UIViewController , UITableViewDelegate, UITableViewD
         })
 
     }
-
+    
+    func didTapReplyTweet(tweetCell: TweetCell) {
+        self.performSegue(withIdentifier: "ReplyTweet", sender: tweetCell)
+    }
+    
     func didTweet(composeTweetViewController: ComposeTweetViewController) {
         self.navigationController?.popViewController(animated: true)
         refresh()
@@ -63,6 +68,7 @@ class TweetsViewController: UIViewController , UITableViewDelegate, UITableViewD
         let tweet = self.tweets[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell") as! TweetCell
         cell.tweet = tweet
+        cell.delegate = self
         return cell
     }
     
@@ -72,6 +78,17 @@ class TweetsViewController: UIViewController , UITableViewDelegate, UITableViewD
             let vc = segue.destination as! ComposeTweetViewController
             vc.delegate = self
             vc.user = User.currentUser
+            vc.isReply = false
+        } else if (segue.identifier == "ReplyTweet") {
+            let vc = segue.destination as! ComposeTweetViewController
+            vc.delegate = self
+            let indexPath = tableview.indexPath(for: (sender as? TweetCell)!)
+            let tweet = self.tweets[(indexPath?.row)!]
+            vc.user = User.currentUser
+            vc.replyId = tweet.id
+            vc.replyScreenName = tweet.user?.screenName
+            vc.isReply = true
+            
         } else {
             let vc = segue.destination as! DetailTweetViewController
             let indexPath = tableview.indexPath(for: (sender as? TweetCell)!)
