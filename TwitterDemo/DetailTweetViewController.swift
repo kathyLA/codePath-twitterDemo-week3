@@ -19,6 +19,7 @@ class DetailTweetViewController: UIViewController, UITableViewDelegate, UITableV
         self.tableView.dataSource = self
         self.tableView.estimatedRowHeight = 60
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.tableFooterView = UIView(frame: .zero)
         // Do any additional setup after loading the view.
     }
 

@@ -105,7 +105,7 @@
                   moduleName = "TwitterDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kathyyin/Desktop/TwitterDemo/TwitterDemo/TweetCell.swift"
-                  timestampString = "514100966.979281"
+                  timestampString = "514103973.698572"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -120,7 +120,7 @@
                   moduleName = "TwitterDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kathyyin/Desktop/TwitterDemo/TwitterDemo/TweetCell.swift"
-                  timestampString = "514100966.988208"
+                  timestampString = "514103973.707198"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -135,7 +135,7 @@
                   moduleName = "TwitterDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kathyyin/Desktop/TwitterDemo/TwitterDemo/TweetCell.swift"
-                  timestampString = "514100966.991894"
+                  timestampString = "514103973.710143"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -150,7 +150,7 @@
                   moduleName = "TwitterDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kathyyin/Desktop/TwitterDemo/TwitterDemo/TweetCell.swift"
-                  timestampString = "514100966.99506"
+                  timestampString = "514103973.713154"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -279,12 +279,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterDemo/DetailTweetViewController.swift"
-            timestampString = "514103084.928013"
+            timestampString = "514103253.205637"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "configureCell(cell:with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TwitterDemo/ComposeTweetViewController.swift"
+            timestampString = "514103921.656374"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "tapTweet(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TwitterDemo/TweetsViewController.swift"
+            timestampString = "514103945.039718"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "didTweet(composeTweetViewController:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
