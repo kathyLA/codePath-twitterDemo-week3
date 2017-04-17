@@ -9,7 +9,6 @@
 import UIKit
 
 class DetailTweetCell: UITableViewCell {
-
     @IBOutlet weak var retweetUpperButton: UIButton!
     @IBOutlet weak var retweetUpperLabel: UILabel!
     @IBOutlet weak var profileImageVIew: UIImageView!
@@ -17,7 +16,22 @@ class DetailTweetCell: UITableViewCell {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var tweetText: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    
+
+    var tweet: Tweet! {
+        didSet {
+              retweetUpperButton.isHidden = true
+              retweetUpperLabel.isHidden = true
+              let url = tweet.user?.profileUrl
+              if let url = url {
+                 profileImageVIew.setImageWith(url)
+              }
+            
+              userName.text = tweet.user?.name
+              screenName.text = tweet.user?.screenName
+              tweetText.text = tweet.text
+              dateLabel.text = tweet.timestampString
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

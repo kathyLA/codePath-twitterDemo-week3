@@ -11,8 +11,18 @@ import UIKit
 class FavoritesAndRetweetsCountCell: UITableViewCell {
 
     @IBOutlet weak var retweetLabel: UILabel!
-    
     @IBOutlet weak var favoeiteLabel: UILabel!
+    var retweetCount: Int! {
+        didSet {
+            retweetLabel.text = String(retweetCount)
+        }
+    }
+    
+    var favoriteCount: Int! {
+        didSet {
+            favoeiteLabel.text = String(favoriteCount)
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

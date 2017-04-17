@@ -35,7 +35,6 @@ class TwitterClient: BDBOAuth1SessionManager {
             print("error\(error?.localizedDescription)")
             self.loginFailure?(error!)
         })
-
     }
     
     func handleOpenUrl(url: URL) {
@@ -47,7 +46,7 @@ class TwitterClient: BDBOAuth1SessionManager {
             }, failure: { (error) in
                self.loginFailure?(error)
             })
-            
+
         }, failure: { (error) in
             print("Error:\(error?.localizedDescription)")
             self.loginFailure?(error!)

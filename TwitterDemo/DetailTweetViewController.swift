@@ -55,11 +55,12 @@ class DetailTweetViewController: UIViewController, UITableViewDelegate, UITableV
     func configureCell(cell:UITableViewCell, with indexPath: IndexPath) {
         switch(indexPath.row) {
         case 0:
-            cell as? DetailTweetCell
+            let cell = cell as? DetailTweetCell
+            cell?.tweet = tweet
         case 1:
-            cell as? FavoritesAndRetweetsCountCell
-        case 2:
-            cell as? ButtonsCell
+            let cell = cell as? FavoritesAndRetweetsCountCell
+            cell?.favoriteCount = tweet?.favouritesCount
+            cell?.retweetCount = tweet?.retweetCount
         default:
             break
         }

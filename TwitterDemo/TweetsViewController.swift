@@ -73,7 +73,9 @@ class TweetsViewController: UIViewController , UITableViewDelegate, UITableViewD
             vc.delegate = self
             vc.user = User.currentUser
         } else {
-            
+            let vc = segue.destination as! DetailTweetViewController
+            let indexPath = tableview.indexPath(for: (sender as? TweetCell)!)
+            vc.tweet = self.tweets[(indexPath?.row)!]
         }
     }
     

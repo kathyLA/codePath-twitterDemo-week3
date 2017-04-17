@@ -21,7 +21,7 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var retweetButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
-    
+
     var tweet: Tweet! {
         didSet{
            let url = tweet.user?.profileUrl
