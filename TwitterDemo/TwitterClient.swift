@@ -29,7 +29,7 @@ class TwitterClient: BDBOAuth1SessionManager {
                 UIApplication.shared.open(url!, options:[:], completionHandler: nil)
             }
             else {
-                print("there is an error happen")
+                print("request token is nil")
             }
         }, failure: { (error) in
             print("error\(error?.localizedDescription)")
@@ -48,9 +48,8 @@ class TwitterClient: BDBOAuth1SessionManager {
                self.loginFailure?(error)
             })
             
-            
         }, failure: { (error) in
-            print("Error happen")
+            print("Error:\(error?.localizedDescription)")
             self.loginFailure?(error!)
         })
     }
@@ -65,6 +64,16 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
+    func newTweet(tweet: String, success:@escaping (() -> ()), failure: @escaping ((Error) -> ())) {
+        
+       post("/1.1/statuses/update.json", parameters: ["status": tweet], progress: nil, success: { (task, response) in
+            success()
+       }) { (task, error) in
+            failure(error)
+            print("Error:\(error.localizedDescription)")
+        }
+    }
+    
     func currentAccount(success: @escaping (User) -> (), failure: @escaping (Error) -> ()) {
         get("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task, response) in
             
@@ -73,6 +82,7 @@ class TwitterClient: BDBOAuth1SessionManager {
             success(user)
         }, failure: { (task, error) in
             failure(error)
+            print("Error:\(error.localizedDescription)")
         })
 
     }

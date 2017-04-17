@@ -14,6 +14,8 @@ class Tweet {
     var retweetCount: Int = 0
     var favouritesCount: Int = 0
     var user: User?
+    var timestampString: String?
+    var time: String?
     init (dictionary: NSDictionary) {
         let userDictionary = dictionary["user"] as! NSDictionary
         self.user = User(dictionary: userDictionary)
@@ -22,9 +24,21 @@ class Tweet {
         favouritesCount = dictionary["favourites_count"] as? Int ?? 0
         let timestampString = dictionary["created_at"] as? String
         if let timestampString = timestampString {
+            self.timestampString = timestampString
             let formatter = DateFormatter()
             formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
             timestamp = formatter.date(from: timestampString)
+            var timeStr = ""
+            let calendar = Calendar.current
+            let hour = calendar.component(.hour, from: timestamp!)
+            let minutes = calendar.component(.minute, from: timestamp!)
+            let seconds = calendar.component(.second, from: timestamp!)
+            let month = calendar.component(.month, from: timestamp!)
+            let year = calendar.component(.year, from: timestamp!)
+            if year > 0 {
+                
+            }
+            
         }
     }
     

@@ -11,8 +11,12 @@ import AFNetworking
 
 class TweetCell: UITableViewCell {
 
+    @IBOutlet weak var tweetText: UILabel!
     @IBOutlet weak var profileView: UIImageView!
+    
+    
     @IBOutlet weak var retweetUpperButton: UIButton!
+  
     @IBOutlet weak var retweetUperLabel: UILabel!
     
     
@@ -21,8 +25,9 @@ class TweetCell: UITableViewCell {
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var shareButton: UIButton!
-  
-    @IBOutlet weak var reteetButton: UIButton!
+    
+    @IBOutlet weak var retweetButton: UIButton!
+    
     @IBOutlet weak var favoriteButton: UIButton!
     
     var tweet: Tweet! {
@@ -31,6 +36,13 @@ class TweetCell: UITableViewCell {
             if let url = url {
                 profileView.setImageWith(url)
             }
+            
+            retweetUpperButton.isHidden = true
+            retweetUperLabel.isHidden = true
+            tweetScreenNameLabel.text = "@" + (tweet.user?.screenName)!
+            tweetUserNameLabel.text = tweet.user?.name
+            tweetText.text = tweet.text
+            
         }
     }
     

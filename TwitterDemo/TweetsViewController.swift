@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController , UITableViewDelegate, UITableViewDataSource{
+class TweetsViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, ComposeTweetViewConrollerDelegate {
     var tweets: [Tweet]!
     
     @IBOutlet weak var tableview: UITableView!
@@ -26,12 +26,18 @@ class TweetsViewController: UIViewController , UITableViewDelegate, UITableViewD
 
     func refresh() {
         TwitterClient.shareInstance?.homeTimeline(success: { (tweets: [Tweet]) in
-        self.tweets = tweets
+            self.tweets = tweets
+            self.tableview.refreshControl?.endRefreshing()
             self.tableview.reloadData()
         }, failure: { (error) in
-    
+            self.tableview.refreshControl?.endRefreshing()
         })
 
+    }
+
+    func didTweet(composeTweetViewController: ComposeTweetViewController) {
+        self.navigationController?.popViewController(animated: true)
+        refresh()
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,6 +64,17 @@ class TweetsViewController: UIViewController , UITableViewDelegate, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell") as! TweetCell
         cell.tweet = tweet
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        
+        if(segue.identifier == "NewTweet") {
+            let vc = segue.destination as! ComposeTweetViewController
+            vc.delegate = self
+            vc.user = User.currentUser
+        } else {
+            
+        }
     }
     
     /*
