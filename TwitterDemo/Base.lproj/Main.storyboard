@@ -495,6 +495,9 @@
                             <constraint firstItem="rUX-Mr-x6u" firstAttribute="top" secondItem="NjO-je-lBE" secondAttribute="bottom" id="t5q-Yf-fGA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="NjO-je-lBE" id="d7b-ln-FKr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVB-R0-6Vs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
