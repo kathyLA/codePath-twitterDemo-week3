@@ -34,12 +34,15 @@ class TweetCell: UITableViewCell {
             if let url = url {
                 profileView.setImageWith(url)
             }
+            
             retweetUpperButton.isHidden = true
             retweetUperLabel.isHidden = true
             tweetScreenNameLabel.text = "@" + (tweet.user?.screenName)!
             tweetUserNameLabel.text = tweet.user?.name
             tweetText.text = tweet.text
             timeLabel.text = tweet.time
+            retweetButton.imageView?.tintColor = tweet.retweeted! ? UIColor.blue : UIColor.lightGray
+            favoriteButton.imageView?.tintColor = tweet.favorited! ? UIColor.red : UIColor.lightGray
         }
     }
     
@@ -65,17 +68,19 @@ class TweetCell: UITableViewCell {
         self.retweetButton.addTarget(self,action: #selector(onRetweet), for: .touchUpInside)
         self.favoriteButton.addTarget(self, action: #selector(onFavorite), for: .touchUpInside)
     }
-    
+
     func onRelpy() {
         self.delegate?.didTapReplyTweet?(tweetCell: self)
         print("onReply")
     }
 
     func onRetweet() {
+        self.delegate?.didTapRetweet?(tweetCell: self)
         print("onRetweet")
     }
-    
+
     func onFavorite() {
+        self.delegate?.didTapFavorite?(tweetCell: self)
         print("onFavorite")
     }
 }

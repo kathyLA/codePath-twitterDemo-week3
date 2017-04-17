@@ -37,6 +37,7 @@ class ButtonsCell: UITableViewCell {
     }
     
     func tapFavorite() {
+       delegate?.onTapFavorite?()
     }
     
     func tapRetweet() {

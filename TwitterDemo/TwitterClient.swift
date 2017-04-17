@@ -37,7 +37,6 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
-    
     func handleOpenUrl(url: URL) {
         let requestToken = BDBOAuth1Credential(queryString: url.query)
         fetchAccessToken(withPath: "oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessCredential) in
@@ -110,7 +109,8 @@ class TwitterClient: BDBOAuth1SessionManager {
     
     func retweet(id: NSNumber, success: @escaping ()->(), failure: @escaping (Error)->()) {
         let id = Int(id)
-        post("1.1/statuses/unretweet/\(id).json", parameters: ["id": id], progress: nil, success: { (task, response) in
+        print("1.1/statuses/retweet/\(id).json")
+        post("1.1/statuses/retweet/\(id).json", parameters: ["id": id], progress: nil, success: { (task, response) in
            success()
            print("success retweet")
         }) { (task, error) in
@@ -121,6 +121,7 @@ class TwitterClient: BDBOAuth1SessionManager {
 
     func unRetweet(id: NSNumber, success: @escaping ()->(), failure: @escaping (Error)->()) {
         let id = Int(id)
+        print("1.1/statuses/unretweet/\(id).json")
         post("1.1/statuses/unretweet/\(id).json", parameters: ["id": id], progress: nil, success: { (task, response) in
             success()
         }) { (task, error) in
@@ -139,7 +140,7 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
     }
 
-    func unFavorite(id: String, success: @escaping ()->(), failure:@escaping (Error)->()) {
+    func unFavorite(id: NSNumber, success: @escaping ()->(), failure:@escaping (Error)->()) {
         let id = Int(id)
         post("1.1/favorites/destroy.json", parameters: ["id": id], progress: nil, success: { (task, response) in
             success()

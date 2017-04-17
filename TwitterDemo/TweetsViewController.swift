@@ -40,6 +40,50 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.performSegue(withIdentifier: "ReplyTweet", sender: tweetCell)
     }
     
+    func didTapRetweet(tweetCell: TweetCell) {
+        let indexPath = tableview.indexPath(for: tweetCell)
+        let tweet = self.tweets[(indexPath?.row)!]
+        let value = !(tweet.retweeted ?? false)
+        var retweetsCount = tweet.retweetCount
+        self.tweets[(indexPath?.row)!].retweeted = value
+        if (value) {
+            retweetsCount = retweetsCount + 1;
+            TwitterClient.shareInstance?.retweet(id: tweet.id!, success: {
+            }, failure: { (error) in
+            })
+        } else {
+            retweetsCount = retweetsCount - 1
+            TwitterClient.shareInstance?.unRetweet(id: tweet.id!, success: {
+            }, failure: { (error) in
+            })
+        }
+
+        self.tweets[(indexPath?.row)!].retweetCount = retweetsCount
+        self.tableview.reloadRows(at: [indexPath!], with: .automatic)
+    }
+    
+    func didTapFavorite(tweetCell: TweetCell) {
+        let indexPath = tableview.indexPath(for: tweetCell)
+        let tweet = self.tweets[(indexPath?.row)!]
+        let value = !(tweet.favorited ?? false)
+        var favoriteCount = tweet.user?.favouritesCount
+        self.tweets[(indexPath?.row)!].favorited = value
+        if (value) {
+            favoriteCount = favoriteCount! + 1;
+            TwitterClient.shareInstance?.favorite(id: tweet.id!, success: {
+            }, failure: { (error) in
+            })
+        } else {
+            favoriteCount = favoriteCount! - 1
+            TwitterClient.shareInstance?.unFavorite(id: tweet.id!, success: {
+            }, failure: { (error) in
+            })
+        }
+        
+        self.tweets[(indexPath?.row)!].user?.favouritesCount = favoriteCount!
+        self.tableview.reloadRows(at: [indexPath!], with: .automatic)
+    }
+    
     func didTweet(composeTweetViewController: ComposeTweetViewController) {
         self.navigationController?.popViewController(animated: true)
         refresh()

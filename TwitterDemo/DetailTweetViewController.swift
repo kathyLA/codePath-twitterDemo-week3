@@ -68,6 +68,8 @@ class DetailTweetViewController: UIViewController, UITableViewDelegate, UITableV
         case 2:
             let cell = cell as? ButtonsCell
             cell?.delegate = self
+            cell?.favoriteButton.imageView?.tintColor = (tweet?.favorited ?? false) ? UIColor.red : UIColor.lightGray
+            cell?.retweetButton.imageView?.tintColor = (tweet?.retweeted ?? false) ? UIColor.blue : UIColor.lightGray
         default:
             break
         }
@@ -76,6 +78,45 @@ class DetailTweetViewController: UIViewController, UITableViewDelegate, UITableV
     
     func onTapReply() {
         self.performSegue(withIdentifier: "DetailReplyTweet", sender: nil)
+    }
+    
+    func onTapFavorite() {
+        let value =  !(tweet?.favorited)!
+        var favoriteCount = tweet?.user?.favouritesCount
+        if (value) {
+            favoriteCount = favoriteCount! + 1;
+            TwitterClient.shareInstance?.favorite(id: (tweet?.id!)!, success: {
+            }, failure: { (error) in
+            })
+        } else {
+            favoriteCount = favoriteCount! - 1
+            TwitterClient.shareInstance?.unFavorite(id: (tweet?.id!)!, success: {
+            }, failure: { (error) in
+            })
+        }
+        tweet?.favorited = value
+        tweet?.user?.favouritesCount = favoriteCount!
+        self.tableView.reloadData()
+    }
+    
+    func onTapRetweet() {
+        let value = !(tweet?.retweeted)!
+        var retweetCount = tweet?.retweetCount
+        if (value) {
+            retweetCount = retweetCount! + 1;
+            TwitterClient.shareInstance?.retweet(id: (tweet?.id!)!, success: {
+            }, failure: { (error) in
+            })
+        } else {
+            retweetCount = retweetCount! - 1
+            TwitterClient.shareInstance?.unRetweet(id: (tweet?.id!)!, success: {
+            }, failure: { (error) in
+            })
+        }
+
+        tweet?.retweeted = value
+        tweet?.retweetCount = retweetCount!
+        self.tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
