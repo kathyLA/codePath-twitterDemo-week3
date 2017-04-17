@@ -108,35 +108,45 @@ class TwitterClient: BDBOAuth1SessionManager {
        deauthorize()
     }
     
-    func retweet(id: String, success:()->(), failure:(Error)->()) {
-        post("", parameters: ["id"], progress: nil, success: { (task, nil) in
-            
+    func retweet(id: NSNumber, success: @escaping ()->(), failure: @escaping (Error)->()) {
+        let id = Int(id)
+        post("1.1/statuses/unretweet/\(id).json", parameters: ["id": id], progress: nil, success: { (task, response) in
+           success()
+           print("success retweet")
         }) { (task, error) in
-            
+           failure(error)
+           print("retweet fail")
         }
     }
 
-    func unRetweet(id: String, success:()->(), failure:(Error)->()) {
-        post("", parameters: ["id"], progress: nil, success: { (task, nil) in
-            
+    func unRetweet(id: NSNumber, success: @escaping ()->(), failure: @escaping (Error)->()) {
+        let id = Int(id)
+        post("1.1/statuses/unretweet/\(id).json", parameters: ["id": id], progress: nil, success: { (task, response) in
+            success()
         }) { (task, error) in
-            
+            failure(error)
         }
     }
 
-    func favorite(id: String, success:()->(), failure:(Error)->()) {
-        post("", parameters: nil, progress: nil, success: { (task, success) in
-            
+    func favorite(id: NSNumber, success: @escaping ()->(), failure: @escaping (Error)->()) {
+        let id = Int(id) 
+        post("1.1/favorites/create.json", parameters: ["id": id], progress: nil, success: { (task, response) in
+            success()
+              print("on favorite success")
         }) { (task, error) in
-            
+            failure(error)
+            print("on favorite error")
         }
     }
 
-    func unFavorite(id: String, success:()->(), failure:(Error)->()) {
-        post("", parameters: nil, progress: nil, success: { (task, success) in
-            
+    func unFavorite(id: String, success: @escaping ()->(), failure:@escaping (Error)->()) {
+        let id = Int(id)
+        post("1.1/favorites/destroy.json", parameters: ["id": id], progress: nil, success: { (task, response) in
+            success()
+             print("on unfavorite success")
         }) { (task, error) in
-            
+            failure(error)
+           print("on unfavorite error")
         }
     }
 }
