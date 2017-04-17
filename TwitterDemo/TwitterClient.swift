@@ -106,7 +106,7 @@ class TwitterClient: BDBOAuth1SessionManager {
         
        deauthorize()
     }
-    
+
     func retweet(id: NSNumber, success: @escaping ()->(), failure: @escaping (Error)->()) {
         let id = Int(id)
         print("1.1/statuses/retweet/\(id).json")

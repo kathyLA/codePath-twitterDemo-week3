@@ -41,7 +41,7 @@ class ButtonsCell: UITableViewCell {
     }
     
     func tapRetweet() {
-        
+        delegate?.onTapRetweet?()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
