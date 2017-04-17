@@ -13,21 +13,13 @@ class TweetCell: UITableViewCell {
 
     @IBOutlet weak var tweetText: UILabel!
     @IBOutlet weak var profileView: UIImageView!
-    
-    
     @IBOutlet weak var retweetUpperButton: UIButton!
-  
     @IBOutlet weak var retweetUperLabel: UILabel!
-    
-    
     @IBOutlet weak var tweetUserNameLabel: UILabel!
     @IBOutlet weak var tweetScreenNameLabel: UILabel!
-    
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var shareButton: UIButton!
-    
     @IBOutlet weak var retweetButton: UIButton!
-    
     @IBOutlet weak var favoriteButton: UIButton!
     
     var tweet: Tweet! {
@@ -42,6 +34,7 @@ class TweetCell: UITableViewCell {
             tweetScreenNameLabel.text = "@" + (tweet.user?.screenName)!
             tweetUserNameLabel.text = tweet.user?.name
             tweetText.text = tweet.text
+            timeLabel.text = tweet.time
             
         }
     }

@@ -28,17 +28,7 @@ class Tweet {
             let formatter = DateFormatter()
             formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
             timestamp = formatter.date(from: timestampString)
-            var timeStr = ""
-            let calendar = Calendar.current
-            let hour = calendar.component(.hour, from: timestamp!)
-            let minutes = calendar.component(.minute, from: timestamp!)
-            let seconds = calendar.component(.second, from: timestamp!)
-            let month = calendar.component(.month, from: timestamp!)
-            let year = calendar.component(.year, from: timestamp!)
-            if year > 0 {
-                
-            }
-            
+            time = Utility.formatTime(date: timestamp!)
         }
     }
     
