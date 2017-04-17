@@ -7,8 +7,8 @@
 //
 
 import UIKit
-
-class ViewController: UIViewController {
+import BDBOAuth1Manager
+class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    
+    @IBAction func login(_ sender: Any) {
+        TwitterClient.shareInstance?.login(success: {
+            print("I' ve  login")
+            self.performSegue(withIdentifier:"loginSegure", sender: nil)
+        }, failure: { (error) in
+            print("login error \(error.localizedDescription)")
+        })
+    }
 }
 
