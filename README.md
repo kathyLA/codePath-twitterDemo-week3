@@ -2,7 +2,7 @@
 
 **Twitter Demo** is a basic twitter app to read and compose tweets from the [Twitter API](https://apps.twitter.com/).
 
-Time spent: 10 hours spent in total
+Time spent: 15 hours spent in total
 
 ## User Stories
 The following **required** functionality is completed:
@@ -18,7 +18,7 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 - [ ] When composing, you should have a countdown in the upper right for the tweet limit.
-- [ ] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
+- [x] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
 - [ ] Retweeting and favoriting should increment the retweet and favorite count.
 - [ ] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count.
 - [ ] Replies should be prefixed with the username and the reply_id should be set when posting the tweet,
@@ -36,7 +36,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-
+img src = 'http://i.imgur.com/fUxVJyZ.gif'
 <img src='http://i.imgur.com/fUxVJyZ.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).

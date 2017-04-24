@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum tweetsMode: String {
+    case home = "Home"
+    case profile = "Profile"
+    case mentions = "Mentions"
+}
 
 class Utility {
     class func formatTime(date: Date) -> String {

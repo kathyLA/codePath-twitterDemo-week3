@@ -9,7 +9,18 @@
 import UIKit
 
 class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ComposeTweetViewConrollerDelegate, TweetCellButtonDelegate {
+    var mode: tweetsMode = .home
     var tweets: [Tweet]!
+    var showProfileHearder: Bool = true
+    var profileView: ProfileView?
+    
+    var user: User! {
+        didSet {
+            if showProfileHearder {
+                profileView?.user = user
+            }
+        }
+    }
     
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
@@ -21,8 +32,24 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableview.refreshControl = UIRefreshControl()
         self.tableview.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         self.tableview.delaysContentTouches = false
+        
+        switch (self.mode) {
+            case .home:
+                showProfileHearder = false
+                break
+            case .mentions:
+                showProfileHearder = false
+                break
+            case .profile:
+                showProfileHearder = true
+                break
+        }
+        
+        if showProfileHearder {
+            profileView = UINib(nibName: "ProfileView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ProfileView
+            self.tableview.tableHeaderView = profileView
+        }
         refresh()
-        // Do any additional setup after loading the view.
     }
 
     func refresh() {
@@ -103,6 +130,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return  (tweets != nil) ? tweets.count : 0

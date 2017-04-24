@@ -8,6 +8,7 @@
 
 import UIKit
 import BDBOAuth1Manager
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,18 +16,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        let hambugerVc = window?.rootViewController as! HambugerViewController
+        let menuViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+        
+        hambugerVc.menuViewController = menuViewController
+        menuViewController.hambugerViewController = hambugerVc
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tweetsNaviVC = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationComtroller") as! UINavigationController
+        let tweetsVC = tweetsNaviVC.topViewController as! TweetsViewController
+        tweetsVC.mode = .home
+        
+        let profileTweetsNaviVC = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationComtroller") as! UINavigationController
+        let profileTweetsVC = profileTweetsNaviVC.topViewController as! TweetsViewController
+        profileTweetsVC.mode = .profile
+        
+        let mentionTweetsNaviVC = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationComtroller") as! UINavigationController
+        let mentionTweetsVC = mentionTweetsNaviVC.topViewController as! TweetsViewController
+        mentionTweetsVC.mode = .mentions
+        menuViewController.viewcontrollers = [tweetsNaviVC, profileTweetsNaviVC, mentionTweetsNaviVC]
+        menuViewController.titles = ["TimeLine","Profile","Mentions"]
+        
+        
         if User.currentUser != nil {
            print("there is a current user")
-           let storyboard = UIStoryboard(name: "Main", bundle: nil)
-           let vc = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationComtroller")
-           window?.rootViewController = vc
+           //let storyboard = UIStoryboard(name: "Main", bundle: nil)
+           //let tweetsvc = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationComtroller")
+           window?.rootViewController = hambugerVc
         }
-    
+        
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: User.userDidLogOutNotification), object: nil, queue: OperationQueue.main) { (notification: Notification) in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateInitialViewController()
             self.window?.rootViewController = vc
         }
+        
+        window?.makeKeyAndVisible()
         return true
     }
 
@@ -59,4 +84,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-
