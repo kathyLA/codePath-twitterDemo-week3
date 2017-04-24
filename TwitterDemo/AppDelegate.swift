@@ -34,14 +34,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mentionTweetsNaviVC = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationComtroller") as! UINavigationController
         let mentionTweetsVC = mentionTweetsNaviVC.topViewController as! TweetsViewController
         mentionTweetsVC.mode = .mentions
-        menuViewController.viewcontrollers = [tweetsNaviVC, profileTweetsNaviVC, mentionTweetsNaviVC]
-        menuViewController.titles = ["TimeLine","Profile","Mentions"]
-        
+        menuViewController.viewcontrollers = [tweetsNaviVC,profileTweetsNaviVC, mentionTweetsNaviVC]
+        menuViewController.titles = ["Timeline","Profile","Mentions"]
+        hambugerVc.contentViewController = menuViewController.viewcontrollers.first
         
         if User.currentUser != nil {
            print("there is a current user")
-           //let storyboard = UIStoryboard(name: "Main", bundle: nil)
-           //let tweetsvc = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationComtroller")
            window?.rootViewController = hambugerVc
         }
         

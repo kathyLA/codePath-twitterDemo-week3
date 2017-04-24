@@ -22,8 +22,15 @@ class ProfileView: UIView {
             if let url = user.profileUrl {
                     profileView.setImageWith(url)
             }
+                
+            if let url = user.profileBackgroundUrl {
+                    profileView.setImageWith(url)
+            }
+                
             name.text = user.name
             screenName.text = user.screenName
+            followerCounts.text = "\(user.followerCount)"
+            followingCounts.text = "\(user.followingCount)"
         }
     }
     //Set profile: () {}

@@ -186,12 +186,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="106" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="CF2-t6-h4o">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="106" sectionHeaderHeight="64" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="CF2-t6-h4o">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TweetCell" rowHeight="106" id="Pzh-Cg-Uja" userLabel="TweetCell" customClass="TweetCell" customModule="TwitterDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1" width="375" height="106"/>
+                                        <rect key="frame" x="0.0" y="64" width="375" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pzh-Cg-Uja" id="xEU-EX-PTZ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="105"/>
@@ -653,7 +653,7 @@
         <!--Navigation Controller-->
         <scene sceneID="XLL-mh-CIg">
             <objects>
-                <navigationController storyboardIdentifier="TweetsNavigationComtroller" automaticallyAdjustsScrollViewInsets="NO" id="ygT-ey-0Vd" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TweetsNavigationComtroller" extendedLayoutIncludesOpaqueBars="YES" id="ygT-ey-0Vd" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eV7-RA-IvO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

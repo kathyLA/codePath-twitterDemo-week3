@@ -12,12 +12,12 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var mode: tweetsMode = .home
     var tweets: [Tweet]!
     var showProfileHearder: Bool = true
-    var profileView: ProfileView?
+    var profileView: ProfileView!
     
     var user: User! {
         didSet {
             if showProfileHearder {
-                profileView?.user = user
+                profileView.user = user
             }
         }
     }
@@ -49,18 +49,37 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             profileView = UINib(nibName: "ProfileView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ProfileView
             self.tableview.tableHeaderView = profileView
         }
+        
+        if (self.mode == .profile || self.mode == .mentions) {
+            if (self.user == nil) {
+                user = User.currentUser
+            }
+        }
         refresh()
     }
 
     func refresh() {
-        TwitterClient.shareInstance?.homeTimeline(success: { (tweets: [Tweet]) in
-            self.tweets = tweets
-            self.tableview.refreshControl?.endRefreshing()
-            self.tableview.reloadData()
-        }, failure: { (error) in
-            self.tableview.refreshControl?.endRefreshing()
-        })
-
+        switch mode {
+            case .home: fallthrough
+            case .profile:
+                TwitterClient.shareInstance?.homeTimeline(success: { (tweets: [Tweet]) in
+                    self.tweets = tweets
+                    self.tableview.refreshControl?.endRefreshing()
+                    self.tableview.reloadData()
+                }, failure: { (error) in
+                    self.tableview.refreshControl?.endRefreshing()
+                })
+            
+            case .mentions:
+                TwitterClient.shareInstance?.userTimeline(screenName: user.screenName!, success: { (tweets: [Tweet]) in
+                    self.tweets = tweets
+                    self.tableview.refreshControl?.endRefreshing()
+                    self.tableview.reloadData()
+                }, failure: { (error) in
+                    self.tableview.refreshControl?.endRefreshing()
+                })
+            
+        }
     }
     
     func didTapReplyTweet(tweetCell: TweetCell) {
