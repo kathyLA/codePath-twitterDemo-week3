@@ -13,13 +13,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var tweets: [Tweet]!
     var showProfileHearder: Bool = true
     var profileView: ProfileView = UINib(nibName: "ProfileView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ProfileView
-    var showBackButton: Bool = false {
-        didSet {
-            if showBackButton == true {
-                self.navigationController?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(back))
-            }
-        }
-    }
+    var showBackButton: Bool = false
     var user: User! {
         didSet {
             if showProfileHearder {
@@ -39,6 +33,12 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableview.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         self.tableview.delaysContentTouches = false
         
+        if showBackButton == true {
+            self.navigationController?.navigationBar.topItem?.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(onBack))
+        } else {
+            self.navigationController?.navigationBar.topItem?.leftBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(onlogOut(_:)))
+        }
+
         switch (self.mode) {
             case .home:
                 showProfileHearder = false
@@ -63,8 +63,13 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         refresh()
     }
     
-    func back () {
+    func onBack () {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func onlogOut(_ sender: Any) {
+        User.currentUser = nil
+        TwitterClient.shareInstance?.logout()
     }
     
     func refresh() {
@@ -170,10 +175,6 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
 
-    @IBAction func onlogOut(_ sender: Any) {
-        User.currentUser = nil
-        TwitterClient.shareInstance?.logout()
-    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

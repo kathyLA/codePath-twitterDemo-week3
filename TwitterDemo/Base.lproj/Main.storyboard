@@ -312,11 +312,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Rrb-bc-kDN">
-                        <barButtonItem key="leftBarButtonItem" title="Log out" id="gvK-9c-xmg">
-                            <connections>
-                                <action selector="onlogOut:" destination="B9s-FO-D1N" id="ieI-j1-Cyi"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="New" id="WlS-Y2-B91">
                             <connections>
                                 <segue destination="Ndd-kX-yls" kind="show" identifier="NewTweet" id="sW3-SE-9EC"/>
