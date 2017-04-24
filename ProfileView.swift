@@ -27,11 +27,11 @@ class ProfileView: UIView {
                     headerView.setImageWith(url)
             }
             
-                
             name.text = user.name
             screenName.text = user.screenName
-            followerCounts.text = "\(user.followerCount)"
-            followingCounts.text = "\(user.followingCount)"
+                followerCounts.text = (user.followerCount) > 1000 ? "\(user.followerCount/1000)K" : "\(user.followerCount)"
+                followingCounts.text = (user.followingCount) > 1000 ? "\(user.followingCount/1000)K" : "\(user.followingCount)"
+
         }
     }
     //Set profile: () {}
