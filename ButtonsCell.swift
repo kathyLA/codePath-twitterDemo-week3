@@ -18,6 +18,7 @@ class ButtonsCell: UITableViewCell {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var retweetButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
+    
     weak var delegate: ButtonsCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
