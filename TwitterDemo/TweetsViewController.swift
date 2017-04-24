@@ -69,8 +69,15 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func refresh() {
         switch mode {
-            case .home: fallthrough
             case .profile:
+                TwitterClient.shareInstance?.userTimeline(screenName: user.screenName!, success: { (tweets: [Tweet]) in
+                    self.tweets = tweets
+                    self.tableview.refreshControl?.endRefreshing()
+                    self.tableview.reloadData()
+                }, failure: { (error) in
+                    self.tableview.refreshControl?.endRefreshing()
+                })
+            case .home:
                 TwitterClient.shareInstance?.homeTimeline(success: { (tweets: [Tweet]) in
                     self.tweets = tweets
                     self.tableview.refreshControl?.endRefreshing()
