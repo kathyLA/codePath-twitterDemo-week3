@@ -25,7 +25,6 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    
     @IBAction func login(_ sender: Any) {
         TwitterClient.shareInstance?.login(success: {
             print("I' ve  login")

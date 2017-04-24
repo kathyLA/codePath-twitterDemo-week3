@@ -24,8 +24,9 @@ class ProfileView: UIView {
             }
                 
             if let url = user.profileBackgroundUrl {
-                    profileView.setImageWith(url)
+                    headerView.setImageWith(url)
             }
+            
                 
             name.text = user.name
             screenName.text = user.screenName

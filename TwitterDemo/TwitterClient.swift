@@ -72,6 +72,20 @@ class TwitterClient: BDBOAuth1SessionManager {
             failure(error)
         })
     }
+
+    func profileBanner(screenName: String, success: @escaping ((URL) -> ()), failure: @escaping (Error) -> ())  {
+        get("https://api.twitter.com/1.1/users/profile_banner.json", parameters: ["screen_name": screenName], progress: nil, success: { (task, response) in
+            let dictionary = response as! NSDictionary
+            let sizes = dictionary["sizes"] as! NSDictionary
+            let mobile = sizes["mobile"] as! NSDictionary
+            let urlStr = mobile["url"]
+            var url: URL
+            url = URL(string: urlStr as! String)!
+            success(url)
+        }, failure: { (task, error) in
+            failure(error)
+        })
+    }
     
     func mentionsTimeLine(id: NSNumber, success: @escaping (([Tweet]) -> ()), failure: @escaping (Error) -> ()) {
         let id = Int(id)
