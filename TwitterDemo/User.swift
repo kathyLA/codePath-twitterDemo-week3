@@ -40,7 +40,7 @@ class User {
         tagline = dictionary["description"] as? String
         favouritesCount = dictionary["favourites_count"] as? Int ?? 0
         followerCount = dictionary["followers_count"] as? Int ?? 0
-        followingCount = dictionary["following"] as? Int ?? 0
+        followingCount = dictionary["friends_count"] as? Int ?? 0
     }
     
     static var _currentUser: User?
