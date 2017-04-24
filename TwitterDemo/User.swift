@@ -18,6 +18,7 @@ class User {
     var dictionary: NSDictionary?
     var followerCount: Int = 0
     var followingCount: Int = 0
+    var tweetsCount: Int = 0
     var backgroundColor: UIColor?
     static let userDidLogOutNotification = "UserDidLogOut"
     static let userDidLoginNotification = "userDidLogIn"
@@ -36,11 +37,12 @@ class User {
         if let profileBackgroundImageUrl = profileBackgroundImageUrl {
             profileBackgroundUrl = URL(string: profileBackgroundImageUrl)
         }
-        
+
         tagline = dictionary["description"] as? String
         favouritesCount = dictionary["favourites_count"] as? Int ?? 0
         followerCount = dictionary["followers_count"] as? Int ?? 0
         followingCount = dictionary["friends_count"] as? Int ?? 0
+        tweetsCount = dictionary["statuses_count"] as? Int ?? 0
     }
     
     static var _currentUser: User?

@@ -31,6 +31,7 @@ class ProfileView: UIView {
             screenName.text = user.screenName
                 followerCounts.text = (user.followerCount) > 1000 ? "\(user.followerCount/1000)K" : "\(user.followerCount)"
                 followingCounts.text = (user.followingCount) > 1000 ? "\(user.followingCount/1000)K" : "\(user.followingCount)"
+                tweetsCount.text = (user.tweetsCount) > 1000 ? "\(user.tweetsCount/1000)K" : "\(user.tweetsCount)"
 
         }
     }
