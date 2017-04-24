@@ -36,7 +36,8 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1. How to wire the view togerther or how to reuse the view
+1. How to wire the view togerther and how to reuse the view
+2. when to emembed an navigation view controller
 
 
 ## Video Walkthrough
@@ -50,8 +51,6 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 Describe any challenges encountered while building the app.
-
-Group projects link : https://github.com/Codepath-Group11/MyMusic
 
 ## License
 
