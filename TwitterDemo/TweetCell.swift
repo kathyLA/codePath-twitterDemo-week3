@@ -13,6 +13,7 @@ import AFNetworking
     @objc optional func didTapFavorite(tweetCell: TweetCell)
     @objc optional func didTapReplyTweet(tweetCell: TweetCell)
     @objc optional func didTapRetweet(tweetCell: TweetCell)
+    @objc optional func didTapUserProfile(tweetCell: TweetCell)
 }
 
 class TweetCell: UITableViewCell {
@@ -67,6 +68,8 @@ class TweetCell: UITableViewCell {
         self.shareButton.addTarget(self, action: #selector(onRelpy), for: .touchUpInside)
         self.retweetButton.addTarget(self,action: #selector(onRetweet), for: .touchUpInside)
         self.favoriteButton.addTarget(self, action: #selector(onFavorite), for: .touchUpInside)
+        let tap = UITapGestureRecognizer(target: self, action:#selector(onProfile))
+        profileView.addGestureRecognizer(tap)
     }
 
     func onRelpy() {
@@ -82,5 +85,10 @@ class TweetCell: UITableViewCell {
     func onFavorite() {
         self.delegate?.didTapFavorite?(tweetCell: self)
         print("onFavorite")
+    }
+    
+    func onProfile() {
+        self.delegate?.didTapUserProfile?(tweetCell: self)
+        print("onProfile")
     }
 }

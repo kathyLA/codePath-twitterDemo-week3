@@ -29,7 +29,9 @@ class LoginViewController: UIViewController {
     @IBAction func login(_ sender: Any) {
         TwitterClient.shareInstance?.login(success: {
             print("I' ve  login")
-            self.performSegue(withIdentifier:"loginSegure", sender: nil)
+            let appdelegate = UIApplication.shared.delegate as! AppDelegate
+            appdelegate.hambugerMenu()
+            //self.performSegue(withIdentifier:"loginSegure", sender: nil)
         }, failure: { (error) in
             print("login error \(error.localizedDescription)")
         })

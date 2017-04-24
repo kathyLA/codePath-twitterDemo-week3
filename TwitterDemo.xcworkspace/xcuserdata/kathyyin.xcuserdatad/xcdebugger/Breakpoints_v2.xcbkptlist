@@ -89,11 +89,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterDemo/TweetCell.swift"
-            timestampString = "514106621.409396"
+            timestampString = "514709010.703675"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "TweetCell"
             landmarkType = "3">
             <Locations>
@@ -105,7 +105,7 @@
                   moduleName = "TwitterDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kathyyin/Desktop/TwitterDemo/TwitterDemo/TweetCell.swift"
-                  timestampString = "514702017.845929"
+                  timestampString = "514709822.094781"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -120,7 +120,7 @@
                   moduleName = "TwitterDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kathyyin/Desktop/TwitterDemo/TwitterDemo/TweetCell.swift"
-                  timestampString = "514702017.852499"
+                  timestampString = "514709822.102509"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -135,7 +135,7 @@
                   moduleName = "TwitterDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kathyyin/Desktop/TwitterDemo/TwitterDemo/TweetCell.swift"
-                  timestampString = "514702017.857113"
+                  timestampString = "514709822.10667"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -150,11 +150,11 @@
                   moduleName = "TwitterDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kathyyin/Desktop/TwitterDemo/TwitterDemo/TweetCell.swift"
-                  timestampString = "514702017.862446"
+                  timestampString = "514709822.11057"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
                   offsetFromSymbolStart = "31">
                </Location>
             </Locations>
@@ -183,11 +183,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterDemo/TweetsViewController.swift"
-            timestampString = "514705116.823098"
+            timestampString = "514732601.6089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -199,11 +199,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterDemo/TweetCell.swift"
-            timestampString = "514106621.409396"
+            timestampString = "514709010.703675"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "TweetCell"
             landmarkType = "3">
          </BreakpointContent>
@@ -215,11 +215,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterDemo/TweetCell.swift"
-            timestampString = "514106621.409396"
+            timestampString = "514709010.703675"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "TweetCell"
             landmarkType = "3">
          </BreakpointContent>
@@ -295,11 +295,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterDemo/TweetsViewController.swift"
-            timestampString = "514705116.823098"
+            timestampString = "514732601.6089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "didTweet(composeTweetViewController:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -311,45 +311,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterDemo/TweetsViewController.swift"
-            timestampString = "514705116.823098"
+            timestampString = "514732601.6089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TwitterDemo.TweetsViewController.prepare (for : __ObjC.UIStoryboardSegue, sender : Swift.Optional&lt;Any&gt;) -&gt; ()"
-                  moduleName = "TwitterDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kathyyin/Desktop/TwitterDemo/TwitterDemo/TweetsViewController.swift"
-                  timestampString = "514702017.908521"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "170"
-                  endingLineNumber = "170"
-                  offsetFromSymbolStart = "2848">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TwitterDemo.TweetsViewController.prepare (for : __ObjC.UIStoryboardSegue, sender : Swift.Optional&lt;Any&gt;) -&gt; ()"
-                  moduleName = "TwitterDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kathyyin/Desktop/TwitterDemo/TwitterDemo/TweetsViewController.swift"
-                  timestampString = "514702017.911288"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "170"
-                  endingLineNumber = "170"
-                  offsetFromSymbolStart = "4059">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -359,11 +327,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterDemo/TweetCell.swift"
-            timestampString = "514124312.233633"
+            timestampString = "514709108.086949"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "setUp()"
             landmarkType = "7">
          </BreakpointContent>
@@ -407,7 +375,7 @@
                   moduleName = "TwitterDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kathyyin/Desktop/TwitterDemo/TwitterDemo/ComposeTweetViewController.swift"
-                  timestampString = "514702017.917502"
+                  timestampString = "514709822.172709"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "43"
@@ -422,7 +390,7 @@
                   moduleName = "TwitterDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kathyyin/Desktop/TwitterDemo/TwitterDemo/ComposeTweetViewController.swift"
-                  timestampString = "514702017.920411"
+                  timestampString = "514709822.177577"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "44"
@@ -439,11 +407,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterDemo/TweetCell.swift"
-            timestampString = "514124312.233633"
+            timestampString = "514709108.086949"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "onRelpy()"
             landmarkType = "7">
          </BreakpointContent>
@@ -455,11 +423,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterDemo/TweetsViewController.swift"
-            timestampString = "514705116.823098"
+            timestampString = "514732601.6089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "didTapReplyTweet(tweetCell:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -519,11 +487,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterDemo/TweetCell.swift"
-            timestampString = "514124341.447534"
+            timestampString = "514709108.086949"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "TweetCell"
             landmarkType = "3">
          </BreakpointContent>
@@ -551,7 +519,7 @@
                   moduleName = "TwitterDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kathyyin/Desktop/TwitterDemo/TwitterDemo/Tweet.swift"
-                  timestampString = "514702017.941843"
+                  timestampString = "514709822.210957"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "12"
@@ -566,7 +534,7 @@
                   moduleName = "TwitterDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kathyyin/Desktop/TwitterDemo/TwitterDemo/Tweet.swift"
-                  timestampString = "514702017.944501"
+                  timestampString = "514709822.215379"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -583,45 +551,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterDemo/TweetsViewController.swift"
-            timestampString = "514705116.823098"
+            timestampString = "514732601.6089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "didTapRetweet(tweetCell:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TwitterDemo.TweetsViewController.didTapRetweet (tweetCell : TwitterDemo.TweetCell) -&gt; ()"
-                  moduleName = "TwitterDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kathyyin/Desktop/TwitterDemo/TwitterDemo/TweetsViewController.swift"
-                  timestampString = "514702017.950288"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "343">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TwitterDemo.TweetsViewController.didTapRetweet (tweetCell : TwitterDemo.TweetCell) -&gt; ()"
-                  moduleName = "TwitterDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kathyyin/Desktop/TwitterDemo/TwitterDemo/TweetsViewController.swift"
-                  timestampString = "514702017.953186"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "3478">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -663,11 +599,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterDemo/TweetsViewController.swift"
-            timestampString = "514700670.239519"
+            timestampString = "514732570.597654"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -702,6 +638,38 @@
             endingLineNumber = "23"
             landmarkName = "ProfileView"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TwitterDemo/TweetCell.swift"
+            timestampString = "514709108.086949"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "onProfile()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TwitterDemo/TweetsViewController.swift"
+            timestampString = "514732570.597654"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "didTapUserProfile(tweetCell:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

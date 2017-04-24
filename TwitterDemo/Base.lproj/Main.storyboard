@@ -125,7 +125,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="TwitterDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="TwitterDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -158,12 +158,11 @@
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="jxN-h1-lJK" id="j2d-ZW-54I"/>
-                        <segue destination="ygT-ey-0Vd" kind="presentation" identifier="loginSegure" id="g2X-xC-mY5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
+            <point key="canvasLocation" x="-722" y="-11"/>
         </scene>
         <!--Tweets View Controller-->
         <scene sceneID="Ip0-rq-ghC">
@@ -188,16 +187,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="105"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CVR-oz-adn">
-                                                    <rect key="frame" x="17" y="31" width="64" height="64"/>
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CVR-oz-adn">
+                                                    <rect key="frame" x="17" y="30" width="64" height="64"/>
                                                     <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="64" id="HIk-50-OO7"/>
                                                         <constraint firstAttribute="width" constant="64" id="eAP-cb-e35"/>
                                                     </constraints>
-                                                    <connections>
-                                                        <outletCollection property="gestureRecognizers" destination="rXT-JL-VSx" appends="YES" id="w5C-N7-jSL"/>
-                                                    </connections>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Michael Moran" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWy-g0-f1D">
                                                     <rect key="frame" x="89" y="30" width="101" height="18"/>
@@ -246,7 +242,7 @@
                                                     <state key="normal" title="favorite"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eo-Xb-shO">
-                                                    <rect key="frame" x="156" y="76" width="25" height="25"/>
+                                                    <rect key="frame" x="156" y="75" width="25" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="25" id="3uq-6t-tWp"/>
                                                         <constraint firstAttribute="height" constant="25" id="fHI-Lb-pQW"/>
@@ -254,7 +250,7 @@
                                                     <state key="normal" title="favorite" image="ic_retweet"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rvl-Rr-XKJ">
-                                                    <rect key="frame" x="215" y="76" width="25" height="25"/>
+                                                    <rect key="frame" x="215" y="75" width="25" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="3kI-PI-maV"/>
                                                         <constraint firstAttribute="width" constant="25" id="hWL-dE-JQV"/>
@@ -333,7 +329,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PGo-td-CIr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="rXT-JL-VSx"/>
             </objects>
             <point key="canvasLocation" x="1808.8" y="36.431784107946029"/>
         </scene>

@@ -12,8 +12,14 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var mode: tweetsMode = .home
     var tweets: [Tweet]!
     var showProfileHearder: Bool = true
-    var profileView: ProfileView!
-    
+    var profileView: ProfileView = UINib(nibName: "ProfileView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ProfileView
+    var showBackButton: Bool = false {
+        didSet {
+            if showBackButton == true {
+                self.navigationController?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(back))
+            }
+        }
+    }
     var user: User! {
         didSet {
             if showProfileHearder {
@@ -46,7 +52,6 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         if showProfileHearder {
-            profileView = UINib(nibName: "ProfileView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ProfileView
             self.tableview.tableHeaderView = profileView
         }
         
@@ -57,7 +62,11 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         refresh()
     }
-
+    
+    func back () {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     func refresh() {
         switch mode {
             case .home: fallthrough
@@ -80,6 +89,19 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 })
             
         }
+    }
+
+    func didTapUserProfile(tweetCell: TweetCell) {
+        let indexPath = tableview.indexPath(for: tweetCell)
+        let tweet = self.tweets[(indexPath?.row)!]
+        let user = tweet.user
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tweetsNaviVC = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationComtroller") as! UINavigationController
+        let tweetsVC = tweetsNaviVC.topViewController as! TweetsViewController
+        tweetsVC.user = user
+        tweetsVC.mode = .profile
+        tweetsVC.showBackButton = true
+        self.navigationController?.pushViewController(tweetsVC, animated: true)
     }
     
     func didTapReplyTweet(tweetCell: TweetCell) {

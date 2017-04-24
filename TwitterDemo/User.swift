@@ -20,7 +20,7 @@ class User {
     var followingCount: Int = 0
     var backgroundColor: UIColor?
     static let userDidLogOutNotification = "UserDidLogOut"
-    
+    static let userDidLoginNotification = "userDidLogIn"
     init(dictionary: NSDictionary) {
         self.dictionary = dictionary
         name = dictionary["name"] as? String

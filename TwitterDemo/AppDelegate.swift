@@ -15,14 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let hambugerVc = window?.rootViewController as! HambugerViewController
         let menuViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
         
         hambugerVc.menuViewController = menuViewController
         menuViewController.hambugerViewController = hambugerVc
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let tweetsNaviVC = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationComtroller") as! UINavigationController
         let tweetsVC = tweetsNaviVC.topViewController as! TweetsViewController
         tweetsVC.mode = .home
@@ -41,16 +40,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if User.currentUser != nil {
            print("there is a current user")
            window?.rootViewController = hambugerVc
+        } else {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+            self.window?.rootViewController = vc
         }
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: User.userDidLogOutNotification), object: nil, queue: OperationQueue.main) { (notification: Notification) in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateInitialViewController()
+            let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
             self.window?.rootViewController = vc
         }
         
         window?.makeKeyAndVisible()
         return true
+    }
+    
+    func hambugerMenu() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let hambugerVc = storyboard.instantiateInitialViewController() as! HambugerViewController
+        
+        let menuViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+        
+        hambugerVc.menuViewController = menuViewController
+        menuViewController.hambugerViewController = hambugerVc
+
+        let tweetsNaviVC = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationComtroller") as! UINavigationController
+        let tweetsVC = tweetsNaviVC.topViewController as! TweetsViewController
+        tweetsVC.mode = .home
+        
+        let profileTweetsNaviVC = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationComtroller") as! UINavigationController
+        let profileTweetsVC = profileTweetsNaviVC.topViewController as! TweetsViewController
+        profileTweetsVC.mode = .profile
+        
+        let mentionTweetsNaviVC = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationComtroller") as! UINavigationController
+        let mentionTweetsVC = mentionTweetsNaviVC.topViewController as! TweetsViewController
+        mentionTweetsVC.mode = .mentions
+        menuViewController.viewcontrollers = [tweetsNaviVC,profileTweetsNaviVC, mentionTweetsNaviVC]
+        menuViewController.titles = ["Timeline","Profile","Mentions"]
+        hambugerVc.contentViewController = menuViewController.viewcontrollers.first
+        window?.rootViewController = hambugerVc
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
